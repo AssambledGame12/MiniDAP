@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniDAP</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="credito">Made by AssambledL</div>
+
+    <div class="reproductor-container">
+        <canvas id="visualizador"></canvas>
+
+        <h1 id="tituloCancion">MiniDAP</h1>
+        
+        <audio id="miAudio" crossorigin="anonymous"></audio>
+
+        <div class="progreso-container">
+            <span id="tiempoActual">0:00</span>
+            <input type="range" id="barraProgreso" value="0" min="0" max="100">
+            <span id="tiempoTotal">0:00</span>
+        </div>
+
+        <div class="controles">
+            <div class="btn-wrapper">
+                <button id="btnAleatorio" title="Aleatorio">
+                    <span class="material-icons">shuffle</span>
+                </button>
+                <div id="luzAleatorio" class="foquito rojo"></div>
+            </div>
+
+            <button id="btnAnterior" title="Anterior">
+                <span class="material-icons">skip_previous</span>
+            </button>
+            
+            <button id="btnPlayPausa" title="Play/Pausa">
+                <span class="material-icons" id="iconoPlay">play_arrow</span>
+            </button>
+            
+            <button id="btnSiguiente" title="Siguiente">
+                <span class="material-icons">skip_next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="stats-container">
+        <h3>Estadísticas 📊</h3>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-num" id="statCanciones">0</span>
+                <span class="stat-label">Canciones Escuchadas</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-num" id="statHoy">0h 0m</span>
+                <span class="stat-label">Tiempo Hoy</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-num" id="statTotal">0h 0m</span>
+                <span class="stat-label">Total</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="playlist-container">
+        <h2>MiniDAP Playlist</h2>
+        <ul id="listaCanciones"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+/* Paleta de colores: Café muy oscuro de fondo, Café medio para paneles, Verde esmeralda para acentos */
+:root {
+    --bg-color: #1a1412; /* Café casi negro */
+    --panel-color: #2e241c; /* Café oscuro elegante */
+    --accent-color: #4CAF50; /* Verde estilo Spotify/orgánico */
+    --text-main: #f5f0eb; /* Hueso / Beige clarito */
+    --text-muted: #a89f91; /* Gris cafecito */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.reproductor-container, .playlist-container, .stats-container {
+    background-color: var(--panel-color);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    margin-bottom: 20px;
+    border: 1px solid #3d3228;
+}
+
+h1 { 
+    font-size: 22px; 
+    margin-bottom: 15px; 
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+
+/* Canvas para el visualizador */
+#visualizador {
+    width: 100%;
+    height: 80px;
+    background-color: #140f0d;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.progreso-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+#barraProgreso {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--accent-color); 
+    height: 6px;
+}
+
+.controles {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Contenedor especial para el botón aleatorio y su luz */
+.btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.foquito {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.foquito.rojo { background-color: #f44336; box-shadow: 0 0 8px #f44336; }
+.foquito.verde { background-color: var(--accent-color); box-shadow: 0 0 10px var(--accent-color); }
+
+button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button .material-icons { font-size: 30px; }
+
+button:hover { 
+    color: var(--text-main); 
+    transform: scale(1.1); 
+}
+
+#btnPlayPausa {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+#btnPlayPausa .material-icons { font-size: 36px; }
+
+#btnPlayPausa:hover { 
+    background-color: #45a049; 
+    transform: scale(1.05); 
+}
+
+/* Panel de estadísticas */
+.stats-container h3 { margin: 0 0 15px 0; font-size: 16px; color: var(--accent-color); }
+.stats-grid { display: flex; justify-content: space-between; }
+.stat-box { display: flex; flex-direction: column; background-color: #221a14; padding: 10px; border-radius: 8px; width: 30%; }
+.stat-num { font-size: 16px; font-weight: bold; color: var(--text-main); }
+.stat-label { font-size: 10px; color: var(--text-muted); margin-top: 5px; }
+
+/* Playlist */
+.playlist-container h2 {
+    margin-top: 0;
+    font-size: 18px;
+    border-bottom: 1px solid #3d3228;
+    padding-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.playlist-container { max-height: 350px; overflow-y: auto; }
+
+/* Scrollbar personalizada para que se vea pro */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--panel-color); }
+::-webkit-scrollbar-thumb { background: #4a3c30; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+
+ul { list-style: none; padding: 0; margin: 0; }
+
+li {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s;
+    color: var(--text-muted);
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 2px;
+}
+
+li:hover { 
+    background-color: #3d3228; 
+    color: var(--text-main); 
+}
+
+li.sonando { 
+    color: var(--bg-color); 
+    font-weight: bold; 
+    background-color: var(--accent-color);
+}
